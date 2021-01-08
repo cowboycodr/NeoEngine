@@ -3,6 +3,7 @@ package NeoEngine;
 import components.SpriteRenderer;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import util.AssetPool;
 
 public class LevelEditorScene extends Scene {
 
@@ -22,8 +23,8 @@ public class LevelEditorScene extends Scene {
         float sizeX = totalWidth / 100.0f;
         float sizeY = totalHeight / 100.0f;
 
-        for (int x = 0; x < 1000; x++) {
-            for (int y = 0; y < 1000; y++) {
+        for (int x = 0; x < 100; x++) {
+            for (int y = 0; y < 100; y++) {
                 float xPos = xOffset + (x * sizeX);
                 float yPos = yOffset + (y * sizeY);
 
@@ -32,6 +33,12 @@ public class LevelEditorScene extends Scene {
                 this.addGameObjectToScene(go);
             }
         }
+
+        loadResources();
+    }
+
+    public void loadResources() {
+        AssetPool.getShader("assets/shaders/default.glsl");
     }
 
     @Override
