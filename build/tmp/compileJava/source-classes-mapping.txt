@@ -2,37 +2,35 @@ NeoEngine/Transform.java
  NeoEngine.Transform
 NeoEngine/GameObject.java
  NeoEngine.GameObject
-renderer/Texture.java
- renderer.Texture
-components/FontRenderer.java
- components.FontRenderer
+NeoEngine/Component.java
+ NeoEngine.Component
+NeoEngine/Window.java
+ NeoEngine.Window
 NeoEngine/Scene.java
  NeoEngine.Scene
-components/SpriteRenderer.java
- components.SpriteRenderer
-NeoEngine/LevelScene.java
- NeoEngine.LevelScene
+Main.java
+ Main
+renderer/Shader.java
+ renderer.Shader
 NeoEngine/Camera.java
  NeoEngine.Camera
-util/Time.java
- util.Time
+NeoEngine/LevelScene.java
+ NeoEngine.LevelScene
 NeoEngine/KeyListener.java
  NeoEngine.KeyListener
 NeoEngine/MouseListener.java
  NeoEngine.MouseListener
-renderer/Shader.java
- renderer.Shader
-Main.java
- Main
-NeoEngine/Component.java
- NeoEngine.Component
 renderer/RenderBatch.java
  renderer.RenderBatch
 util/AssetPool.java
  util.AssetPool
 NeoEngine/LevelEditorScene.java
  NeoEngine.LevelEditorScene
-NeoEngine/Window.java
- NeoEngine.Window
+components/FontRenderer.java
+ components.FontRenderer
+components/SpriteRenderer.java
+ components.SpriteRenderer
+renderer/Texture.java
+ renderer.Texture
 renderer/Renderer.java
  renderer.Renderer
