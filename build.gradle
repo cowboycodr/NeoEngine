@@ -2,18 +2,50 @@ plugins {
     id 'java'
 }
 
+OperatingSystem os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem;
+
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.11
+
+sourceCompatibility = 1.8
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
 project.ext.lwjglVersion = "3.2.3"
-project.ext.jomlVersion = "1.10.0"
-project.ext.lwjglNatives = "natives-windows"
+project.ext.jomlVersion = "1.9.23"
+project.ext.imguiVersion = '1.76-0.9'
+
+switch (os.isCurrent()) {
+    case os.linux:
+        project.ext.imguiNatives = "imgui-java-natives-linux"
+        project.ext.lwjglNatives = "natives-linux"
+        break
+    case os.macOsX:
+        project.ext.imguiNatives = "imgui-java-natives-macos"
+        project.ext.lwjglNatives = "natives-macos"
+        break
+    case os.windows:
+        project.ext.imguiNatives = System.getProperty("os.arch").contains("64") ? "imgui-java-natives-windows" : "imgui-java-natives-windows-x86"
+        project.ext.lwjglNatives = System.getProperty("os.arch").contains("64") ? "natives-windows" : "natives-windows-x86"
+        break
+}
 
 dependencies {
+    // ImGUI stuff
+    implementation "io.imgui.java:binding:$imguiVersion"
+    implementation "io.imgui.java:lwjgl3:$imguiVersion"
+
+    // Include all available natives, but it's likely that you want something specific
+    runtimeOnly "io.imgui.java:natives-windows:$imguiVersion"
+
+
+    // LWJGL stuff
     implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
 
     implementation "org.lwjgl:lwjgl"
