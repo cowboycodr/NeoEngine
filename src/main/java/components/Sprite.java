@@ -5,8 +5,8 @@ import renderer.Texture;
 
 public class Sprite {
 
-    private Texture texture;
-    private Vector2f[] texCoords;
+    private final Texture texture;
+    private final Vector2f[] texCoords;
 
     public Sprite(Texture texture) {
         this.texture = texture;

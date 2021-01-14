@@ -13,7 +13,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
     private int width, height;
-    private String title;
+    private final String title;
     private long glfwWindow;
     private ImGuiLayer imguiLayer;
 
@@ -147,7 +147,7 @@ public class Window {
                 currentScene.update(dt);
             }
 
-            this.imguiLayer.update(dt);
+            this.imguiLayer.update(dt, currentScene);
             glfwSwapBuffers(glfwWindow);
 
             endTime = (float)glfwGetTime();

@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-OperatingSystem os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem;
+OperatingSystem os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
 
 version '1.0-SNAPSHOT'
 

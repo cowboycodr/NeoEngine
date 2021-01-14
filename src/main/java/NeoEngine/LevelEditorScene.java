@@ -3,6 +3,7 @@ package NeoEngine;
 import components.Sprite;
 import components.SpriteRenderer;
 import components.Spritesheet;
+import imgui.ImGui;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import util.AssetPool;
@@ -26,9 +27,7 @@ public class LevelEditorScene extends Scene {
 
         obj1 = new GameObject("Object 1",
                 new Transform(new Vector2f(200, 100), new Vector2f(256, 256)), 2);
-        obj1.addComponent(new SpriteRenderer(new Sprite(
-                AssetPool.getTexture("assets/images/blendImage1.png")
-        )));
+        obj1.addComponent(new SpriteRenderer(new Vector4f(1, 0, 0, 1)));
 
         GameObject obj2 = new GameObject("Object 2",
                 new Transform(new Vector2f(400, 100), new Vector2f(256, 256)), 2);
@@ -42,6 +41,8 @@ public class LevelEditorScene extends Scene {
         this.addGameObjectToScene(obj1);
         this.addGameObjectToScene(obj2);
         this.addGameObjectToScene(obj3);
+
+        this.activeGameObject = obj1;
     }
 
     public void loadResources() {
@@ -52,9 +53,9 @@ public class LevelEditorScene extends Scene {
                 16, 16, 26, 0));
     }
 
-    private int spriteIndex = 0;
-    private float spriteFlipTime = 0.2f;
-    private float spriteFlipTimeLeft = 0.0f;
+    private final int spriteIndex = 0;
+    private final float spriteFlipTime = 0.2f;
+    private final float spriteFlipTimeLeft = 0.0f;
     @Override
     public void update(float dt) {
 
@@ -63,5 +64,10 @@ public class LevelEditorScene extends Scene {
         }
 
         this.renderer.render();
+    }
+
+    @Override
+    public void imgui() {
+
     }
 }
