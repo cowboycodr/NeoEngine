@@ -22,8 +22,10 @@ public class LevelEditorScene extends Scene {
     @Override
     public void init() {
         loadResources();
-
         this.camera = new Camera(new Vector2f());
+        if (levelLoaded) {
+            return;
+        }
 
         sprites = AssetPool.getSpriteSheet("assets/images/spritesheet.png");
 
