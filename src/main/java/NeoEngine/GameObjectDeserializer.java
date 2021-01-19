@@ -1,6 +1,7 @@
 package NeoEngine;
 
 import com.google.gson.*;
+import components.Component;
 
 import java.lang.reflect.Type;
 

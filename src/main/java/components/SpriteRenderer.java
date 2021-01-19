@@ -1,6 +1,5 @@
 package components;
 
-import NeoEngine.Component;
 import NeoEngine.Transform;
 import imgui.ImGui;
 import org.joml.Vector2f;

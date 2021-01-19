@@ -1,7 +1,5 @@
 package components;
 
-import NeoEngine.Component;
-
 public class FontRenderer extends Component {
 
     @Override
