@@ -5,7 +5,9 @@ import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
+import renderer.DebugDraw;
 import scenes.Scene;
 import util.AssetPool;
 
@@ -60,12 +62,15 @@ public class LevelEditorScene extends Scene {
         AssetPool.getTexture("assets/images/blendImage2.png");
     }
 
-    private final int spriteIndex = 0;
-    private final float spriteFlipTime = 0.2f;
-    private final float spriteFlipTimeLeft = 0.0f;
+    float t = 0.0f;
     @Override
     public void update(float dt) {
         mouseControls.update(dt);
+
+        float x = ((float)Math.sin(t) * 200.0f) + 600;
+        float y = ((float)Math.cos(t) * 200.0f) + 400;
+        t += 0.5f;
+        DebugDraw.addLine2D(new Vector2f(600, 400), new Vector2f(x, y), new Vector3f(0, 0, 0), 10000);
 
         for (GameObject go : this.gameObjects) {
             go.update(dt);

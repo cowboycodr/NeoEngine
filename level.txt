@@ -49,19 +49,6 @@
           },
           "uid": 1
         }
-      },
-      {
-        "type": "components.RigidBody",
-        "properties": {
-          "colliderType": 0,
-          "friction": 0.8,
-          "velocity": {
-            "x": 0.0,
-            "y": 0.5,
-            "z": 0.0
-          },
-          "uid": 3
-        }
       }
     ],
     "transform": {
